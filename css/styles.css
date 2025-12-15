@@ -590,13 +590,12 @@ ul {
 .subscription-accordion {
   display: flex;
   flex-direction: column;
-  gap: var(--spacing-md);
 }
 
 /* The Card Container */
 .subscription-accordion-item {
   border: 1px solid var(--color-border);
-  border-radius: var(--radius-md);
+  border-radius: var(--radius-sm);
   background-color: white;
   overflow: hidden;
   transition: all var(--transition-normal);
@@ -610,7 +609,8 @@ ul {
 
 /* Most Popular Header - Full Width */
 .subscription-header {
-  background-color: #00a651;
+  background: linear-gradient(270deg, #032e15 0%, #008236 51.92%, #00c950 100%);
+
   color: white;
   text-align: center;
   padding: 8px 0;
@@ -847,7 +847,7 @@ ul {
 .benefits-list ul {
   display: flex;
   flex-direction: column;
-  gap: var(--spacing-sm);
+  gap: 4px;
 }
 
 .benefits-list li {
@@ -928,9 +928,6 @@ ul {
 }
 
 /* Benefits List */
-.benefits-list {
-  margin-bottom: var(--spacing-md);
-}
 
 .benefits-list ul {
   list-style: none;
@@ -1368,6 +1365,7 @@ ul {
 .footer {
   color: white;
   padding: var(--spacing-2xl) 0 var(--spacing-lg);
+  background-color: #032e15;
 }
 
 .footer__content {
