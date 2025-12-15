@@ -208,39 +208,6 @@ class SubscriptionAccordion {
   }
 }
 
-class QuantityManager {
-  constructor() {
-    this.quantityInput = document.getElementById("quantity");
-    this.minusBtn = document.getElementById("qtyMinus");
-    this.plusBtn = document.getElementById("qtyPlus");
-
-    this.init();
-  }
-
-  init() {
-    this.minusBtn.addEventListener("click", () => this.decrease());
-    this.plusBtn.addEventListener("click", () => this.increase());
-  }
-
-  decrease() {
-    const currentValue = parseInt(this.quantityInput.value);
-    const minValue = parseInt(this.quantityInput.min);
-
-    if (currentValue > minValue) {
-      this.quantityInput.value = currentValue - 1;
-    }
-  }
-
-  increase() {
-    const currentValue = parseInt(this.quantityInput.value);
-    const maxValue = parseInt(this.quantityInput.max);
-
-    if (currentValue < maxValue) {
-      this.quantityInput.value = currentValue + 1;
-    }
-  }
-}
-
 class StatisticsCounter {
   constructor() {
     this.statCards = document.querySelectorAll(".stat-card__number");
@@ -466,7 +433,6 @@ class AccordionManager {
 document.addEventListener("DOMContentLoaded", () => {
   const gallery = new GalleryManager();
   const subscriptionAccordion = new SubscriptionAccordion();
-  const quantity = new QuantityManager();
   const statistics = new StatisticsCounter();
   const mobileMenu = new MobileMenu();
   const lazyLoader = new LazyLoader();
