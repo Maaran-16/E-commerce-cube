@@ -138,7 +138,7 @@
                     <h2 class="product__title">GTG Perfumes</h2>
                     <div class="product__rating">
                         <span class="stars">★★★★★</span>
-                        <span class="rating-text">(4.9/5 - 999+ reviews)</span>
+                        <span class="rating-text">(4.7 999+ reviews)</span>
                     </div>
 
                     <p class="product__description">
@@ -147,100 +147,206 @@
                         confidence.
                     </p>
 
-                    <!-- Fragrance Selection -->
-                    <div class="product__option">
-                        <h3 class="option__title">Select Fragrance</h3>
-                        <div class="radio-group" id="fragranceGroup">
-                            <label class="radio-option">
-                                <input type="radio" name="fragrance" value="1" checked>
-                                <span class="radio-custom">
-                                    <span class="color-swatch"
-                                        style="background: linear-gradient(135deg, #E8B4D4 0%, #D8A4C4 100%);"></span>
-                                    <span class="option-name">Rose Elegance</span>
-                                </span>
-                            </label>
-                            <label class="radio-option">
-                                <input type="radio" name="fragrance" value="2">
-                                <span class="radio-custom">
-                                    <span class="color-swatch"
-                                        style="background: linear-gradient(135deg, #C084FC 0%, #A855F7 100%);"></span>
-                                    <span class="option-name">Lavender Dreams</span>
-                                </span>
-                            </label>
-                            <label class="radio-option">
-                                <input type="radio" name="fragrance" value="3">
-                                <span class="radio-custom">
-                                    <span class="color-swatch"
-                                        style="background: linear-gradient(135deg, #FB7185 0%, #F43F5E 100%);"></span>
-                                    <span class="option-name">Coral Sunset</span>
-                                </span>
-                            </label>
-                        </div>
-                    </div>
+
 
                     <!-- Purchase Type -->
                     <div class="product__option">
                         <h3 class="option__title">Purchase Type</h3>
                         <div class="radio-group" id="purchaseGroup">
-                            <label class="radio-option">
-                                <input type="radio" name="purchase" value="onetime" checked>
-                                <span class="radio-custom">
-                                    <span class="option-name">One-Time Purchase</span>
-                                    <span class="option-price">$89.99</span>
-                                </span>
-                            </label>
-                            <label class="radio-option">
-                                <input type="radio" name="purchase" value="single">
-                                <span class="radio-custom">
-                                    <span class="option-name">Single Subscription</span>
-                                    <span class="option-price">$79.99/month</span>
-                                </span>
-                            </label>
-                            <label class="radio-option">
-                                <input type="radio" name="purchase" value="double">
-                                <span class="radio-custom">
-                                    <span class="option-name">Double Subscription</span>
-                                    <span class="option-price">$149.99/month</span>
-                                </span>
-                            </label>
+                            <div class="subscription-accordion">
+                                <div class="subscription-header">
+                                    <span class="popular-badge">Most Popular</span>
+                                </div>
+                                <div class="subscription-accordion-item active">
+                                    <button class="subscription-accordion-header" aria-expanded="true">
+                                        <div class="subscription-content">
+                                            <div class="subscription-radio">
+                                                <span class="radio-circle"></span>
+                                            </div>
+                                            <div class="subscription-info">
+                                                <h3 class="subscription-title">Single Subscription</h3>
+                                                <div class="subscription-pricing">
+                                                    <span class="current-price">$99.99</span>
+                                                    <span class="original-price">$146</span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </button>
+                                    <div class="subscription-accordion-content">
+
+                                        <div class="fragrance-selection">
+                                            <h4>Choose a Fragrance</h4>
+                                            <div class="fragrance-options">
+                                                <div class="fragrance-option selected">
+                                                    <div class="fragrance-badge">BEST SELLER</div>
+                                                    <div class="fragrance-image">
+                                                        <img src="assets/images/product-main.png" alt="Original"
+                                                            width="60" height="80">
+                                                    </div>
+                                                    <span class="fragrance-name">Original</span>
+                                                </div>
+                                                <div class="fragrance-option">
+                                                    <div class="fragrance-image">
+                                                        <img src="assets/images/slide_1.png" alt="Lily" width="60"
+                                                            height="80">
+                                                    </div>
+                                                    <span class="fragrance-name">Lily</span>
+                                                </div>
+                                                <div class="fragrance-option">
+                                                    <div class="fragrance-image">
+                                                        <img src="assets/images/slide_2.png" alt="Rose" width="60"
+                                                            height="80">
+                                                    </div>
+                                                    <span class="fragrance-name">Rose</span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="whats-included">
+                                            <h4>What's Included:</h4>
+                                            <div class="included-grid">
+                                                <div class="included-item">
+                                                    <div class="included-box">
+                                                        <span class="included-label">Every 30 Days</span>
+                                                        <div class="bottle-image">
+                                                            <img src="assets/images/product-main.png"
+                                                                alt="Monthly bottle" width="85" height="145">
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="included-item">
+                                                    <div class="included-box">
+                                                        <span class="included-label">One Time (Free)</span>
+                                                        <div class="mini-bottles">
+                                                            <img src="assets/images/slide_1.png" alt="Mini bottle 1"
+                                                                width="55" height="94">
+                                                            <img src="assets/images/slide_2.png" alt="Mini bottle 2"
+                                                                width="55" height="94">
+                                                            <img src="assets/images/slide_3.png" alt="Mini bottle 3"
+                                                                width="55" height="94">
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="benefits-list">
+                                            <ul>
+                                                <li>
+                                                    <img src="./assets/icons/icon_check.svg" alt="Checkmark" width="16"
+                                                        height="16">
+                                                    <span>1 Bottle Shipped Monthly</span>
+                                                </li>
+                                                <li>
+                                                    <img src="./assets/icons/icon_check.svg" alt="Checkmark" width="16"
+                                                        height="16">
+                                                    <span>Free Sampler For Original, Lily And Rose Fragrances</span>
+                                                </li>
+                                                <li>
+                                                    <img src="./assets/icons/icon_check.svg" alt="Checkmark" width="16"
+                                                        height="16">
+                                                    <span>50% OFF Shipping</span>
+                                                </li>
+                                                <li>
+                                                    <img src="./assets/icons/icon_check.svg" alt="Checkmark" width="16"
+                                                        height="16">
+                                                    <span>Pause Or Cancel Anytime After 3 Months Minimum</span>
+                                                </li>
+                                                <li>
+                                                    <img src="./assets/icons/icon_check.svg" alt="Checkmark" width="16"
+                                                        height="16">
+                                                    <span>28 Day Money Back Guarantee*</span>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                    <div class="subscription-accordion-item">
+                                        <button class="subscription-accordion-header" aria-expanded="false">
+                                            <div class="subscription-content">
+                                                <div class="subscription-radio">
+                                                    <span class="radio-circle"></span>
+                                                </div>
+                                                <div class="subscription-info">
+                                                    <h3 class="subscription-title">Double Subscription</h3>
+                                                    <div class="subscription-pricing">
+                                                        <span class="current-price">$169.99</span>
+                                                        <span class="original-price">$146</span>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </button>
+                                        <div class="subscription-accordion-content">
+                                            <div class="fragrance-selection">
+                                                <h4>Choose Fragrance 1</h4>
+                                                <div class="fragrance-options">
+                                                    <div class="fragrance-option selected">
+                                                        <div class="fragrance-badge">BEST SELLER</div>
+                                                        <div class="fragrance-image">
+                                                            <img src="assets/images/product-main.png" alt="Original"
+                                                                width="60" height="80">
+                                                        </div>
+                                                        <span class="fragrance-name">Original</span>
+                                                    </div>
+                                                    <div class="fragrance-option">
+                                                        <div class="fragrance-image">
+                                                            <img src="assets/images/slide_1.png" alt="Lily" width="60"
+                                                                height="80">
+                                                        </div>
+                                                        <span class="fragrance-name">Lily</span>
+                                                    </div>
+                                                    <div class="fragrance-option">
+                                                        <div class="fragrance-image">
+                                                            <img src="assets/images/slide_2.png" alt="Rose" width="60"
+                                                                height="80">
+                                                        </div>
+                                                        <span class="fragrance-name">Rose</span>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="fragrance-selection">
+                                                <h4>Choose Fragrance 2</h4>
+                                                <div class="fragrance-options">
+                                                    <div class="fragrance-option selected">
+                                                        <div class="fragrance-badge">BEST SELLER</div>
+                                                        <div class="fragrance-image">
+                                                            <img src="assets/images/product-main.png" alt="Original"
+                                                                width="60" height="80">
+                                                        </div>
+                                                        <span class="fragrance-name">Original</span>
+                                                    </div>
+                                                    <div class="fragrance-option">
+                                                        <div class="fragrance-image">
+                                                            <img src="assets/images/slide_1.png" alt="Lily" width="60"
+                                                                height="80">
+                                                        </div>
+                                                        <span class="fragrance-name">Lily</span>
+                                                    </div>
+                                                    <div class="fragrance-option">
+                                                        <div class="fragrance-image">
+                                                            <img src="assets/images/slide_2.png" alt="Rose" width="60"
+                                                                height="80">
+                                                        </div>
+                                                        <span class="fragrance-name">Rose</span>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+
+                            <!-- Quantity & Add to Cart -->
+                            <div class="product__actions">
+                                <div class="quantity">
+                                    <button class="qty-btn" id="qtyMinus" aria-label="Decrease quantity">-</button>
+                                    <input type="number" id="quantity" value="1" min="1" max="10" readonly>
+                                    <button class="qty-btn" id="qtyPlus" aria-label="Increase quantity">+</button>
+                                </div>
+                                <a href="#cart?product=fragrance1-onetime" class="btn btn--cta" id="addToCartBtn">ADD TO
+                                    CART</a>
+                            </div>
                         </div>
-                    </div>
-
-                    <!-- Subscription Details -->
-                    <div class="subscription-details" id="singleSubDetails" style="display: none;">
-                        <h4>Single Subscription Benefits</h4>
-                        <ul>
-                            <li>One 50ml bottle delivered monthly</li>
-                            <li>10% savings on retail price</li>
-                            <li>Free shipping on all orders</li>
-                            <li>Cancel anytime, no commitment</li>
-                        </ul>
-                    </div>
-
-                    <div class="subscription-details" id="doubleSubDetails" style="display: none;">
-                        <h4>Double Subscription Benefits</h4>
-                        <ul>
-                            <li>Two 50ml bottles delivered monthly</li>
-                            <li>15% savings on retail price</li>
-                            <li>Free priority shipping</li>
-                            <li>Exclusive access to new fragrances</li>
-                            <li>Cancel anytime, no commitment</li>
-                        </ul>
-                    </div>
-
-                    <!-- Quantity & Add to Cart -->
-                    <div class="product__actions">
-                        <div class="quantity">
-                            <button class="qty-btn" id="qtyMinus" aria-label="Decrease quantity">-</button>
-                            <input type="number" id="quantity" value="1" min="1" max="10" readonly>
-                            <button class="qty-btn" id="qtyPlus" aria-label="Increase quantity">+</button>
-                        </div>
-                        <a href="#cart?product=fragrance1-onetime" class="btn btn--cta" id="addToCartBtn">ADD TO
-                            CART</a>
                     </div>
                 </div>
-            </div>
-        </div>
     </section>
 
     <!-- Our Collection -->

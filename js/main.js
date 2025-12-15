@@ -80,52 +80,130 @@ class GalleryManager {
   }
 }
 
-class ProductManager {
+class SubscriptionAccordion {
   constructor() {
-    this.selectedFragrance = "1";
-    this.selectedPurchase = "onetime";
-
-    this.fragranceInputs = document.querySelectorAll('input[name="fragrance"]');
-    this.purchaseInputs = document.querySelectorAll('input[name="purchase"]');
+    this.accordionItems = document.querySelectorAll(
+      ".subscription-accordion-item"
+    );
+    this.selectedPurchase = "single";
+    this.selectedFragrance1 = "original";
+    this.selectedFragrance2 = "original";
     this.cartButton = document.getElementById("addToCartBtn");
-    this.singleSubDetails = document.getElementById("singleSubDetails");
-    this.doubleSubDetails = document.getElementById("doubleSubDetails");
 
     this.init();
   }
 
   init() {
-    this.fragranceInputs.forEach((input) => {
-      input.addEventListener("change", (e) => {
-        this.selectedFragrance = e.target.value;
+    // Handle accordion clicks
+    this.accordionItems.forEach((item) => {
+      const header = item.querySelector(".subscription-accordion-header");
+      header.addEventListener("click", () => this.toggle(item));
+    });
+
+    // Initialize fragrance selection
+    this.initFragranceSelection();
+
+    // Set initial state
+    this.updateCartLink();
+  }
+
+  toggle(item) {
+    const isActive = item.classList.contains("active");
+    const header = item.querySelector(".subscription-accordion-header");
+
+    // Close all other items
+    this.accordionItems.forEach((otherItem) => {
+      if (otherItem !== item) {
+        otherItem.classList.remove("active");
+        otherItem
+          .querySelector(".subscription-accordion-header")
+          .setAttribute("aria-expanded", "false");
+      }
+    });
+
+    // Toggle current item
+    if (isActive) {
+      item.classList.remove("active");
+      header.setAttribute("aria-expanded", "false");
+    } else {
+      item.classList.add("active");
+      header.setAttribute("aria-expanded", "true");
+
+      // Update selected purchase type
+      const title = item.querySelector(".subscription-title").textContent;
+      this.selectedPurchase = title.toLowerCase().includes("single")
+        ? "single"
+        : "double";
+      this.updateCartLink();
+    }
+  }
+
+  initFragranceSelection() {
+    // Single subscription fragrance selection
+    const singleFragranceOptions = document.querySelectorAll(
+      ".subscription-accordion-item:nth-child(1) .fragrance-option"
+    );
+    singleFragranceOptions.forEach((option) => {
+      option.addEventListener("click", () => {
+        singleFragranceOptions.forEach((opt) =>
+          opt.classList.remove("selected")
+        );
+        option.classList.add("selected");
+        this.selectedFragrance1 = option
+          .querySelector(".fragrance-name")
+          .textContent.toLowerCase();
         this.updateCartLink();
       });
     });
 
-    this.purchaseInputs.forEach((input) => {
-      input.addEventListener("change", (e) => {
-        this.selectedPurchase = e.target.value;
+    // Double subscription fragrance selection
+    const doubleFragranceOptions1 = document.querySelectorAll(
+      ".subscription-accordion-item:nth-child(2) .fragrance-selection:first-child .fragrance-option"
+    );
+    const doubleFragranceOptions2 = document.querySelectorAll(
+      ".subscription-accordion-item:nth-child(2) .fragrance-selection:last-child .fragrance-option"
+    );
+
+    doubleFragranceOptions1.forEach((option) => {
+      option.addEventListener("click", () => {
+        doubleFragranceOptions1.forEach((opt) =>
+          opt.classList.remove("selected")
+        );
+        option.classList.add("selected");
+        this.selectedFragrance1 = option
+          .querySelector(".fragrance-name")
+          .textContent.toLowerCase();
         this.updateCartLink();
-        this.updateSubscriptionDetails();
+      });
+    });
+
+    doubleFragranceOptions2.forEach((option) => {
+      option.addEventListener("click", () => {
+        doubleFragranceOptions2.forEach((opt) =>
+          opt.classList.remove("selected")
+        );
+        option.classList.add("selected");
+        this.selectedFragrance2 = option
+          .querySelector(".fragrance-name")
+          .textContent.toLowerCase();
+        this.updateCartLink();
       });
     });
   }
 
   updateCartLink() {
-    const cartUrl = `#cart?product=fragrance${this.selectedFragrance}-${this.selectedPurchase}`;
-    this.cartButton.href = cartUrl;
-
-    console.log("Cart link updated:", cartUrl);
-  }
-
-  updateSubscriptionDetails() {
-    this.singleSubDetails.style.display = "none";
-    this.doubleSubDetails.style.display = "none";
-
+    let cartUrl;
     if (this.selectedPurchase === "single") {
-      this.singleSubDetails.style.display = "block";
+      cartUrl = `#cart?product=${this.selectedFragrance1}-single`;
     } else if (this.selectedPurchase === "double") {
-      this.doubleSubDetails.style.display = "block";
+      cartUrl = `#cart?product=${this.selectedFragrance1}-${this.selectedFragrance2}-double`;
+    } else {
+      cartUrl = `#cart?product=original-onetime`;
+    }
+
+    if (this.cartButton) {
+      this.cartButton.href = cartUrl;
+      console.log("Cart link updated:", cartUrl);
     }
   }
 }
@@ -387,7 +465,7 @@ class AccordionManager {
 
 document.addEventListener("DOMContentLoaded", () => {
   const gallery = new GalleryManager();
-  const product = new ProductManager();
+  const subscriptionAccordion = new SubscriptionAccordion();
   const quantity = new QuantityManager();
   const statistics = new StatisticsCounter();
   const mobileMenu = new MobileMenu();

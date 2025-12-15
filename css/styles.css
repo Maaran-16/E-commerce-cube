@@ -137,9 +137,9 @@ ul {
 }
 
 .btn--cta:hover {
-  background-color: var(--color-primary-dark);
+  background: var(--btn-gradient);
   transform: translateY(-2px);
-  box-shadow: var(--shadow-lg);
+  background: var(--btn-gradient);
 }
 
 /* Header*/
@@ -335,7 +335,7 @@ ul {
 }
 
 .hero__text {
-  max-width: 600px;
+  max-width: 650px;
 }
 
 .hero__badge {
@@ -408,7 +408,7 @@ ul {
   }
 
   .hero__title {
-    font-size: 3.5rem;
+    font-size: 3rem;
   }
 
   .hero__image img {
@@ -420,137 +420,536 @@ ul {
   }
 }
 
-/* Product Section*/
+/* Product Section */
 .product {
   padding: var(--spacing-2xl) 0;
-  background-color: var(--color-bg-light);
+  background-color: var(--color-bg);
 }
 
 .product__wrapper {
   display: grid;
-  gap: var(--spacing-xl);
+  gap: var(--spacing-2xl);
 }
 
 /* Gallery */
-/* .product__gallery {
-  background-color: white;
-  padding: var(--spacing-lg);
-  border-radius: var(--radius-lg);
-  box-shadow: var(--shadow-sm);
-} */
+.product__gallery {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-md);
+}
 
 .gallery__main {
   position: relative;
-  margin-bottom: var(--spacing-md);
   aspect-ratio: 1;
   display: flex;
   align-items: center;
   justify-content: center;
   background-color: var(--color-bg-light);
-  border-radius: var(--radius-md);
+  border-radius: var(--radius-lg);
   overflow: hidden;
 }
 
 .gallery__image {
-  max-width: 100%;
-  max-height: 100%;
+  max-width: 80%;
+  max-height: 80%;
   object-fit: contain;
   transition: opacity var(--transition-normal);
+  filter: drop-shadow(0 10px 20px rgba(0, 0, 0, 0.1));
 }
 
 .gallery__arrow {
   position: absolute;
   top: 50%;
   transform: translateY(-50%);
-  background-color: white;
+  background-color: rgba(255, 255, 255, 0.8);
+  backdrop-filter: blur(4px);
+  border: 1px solid var(--color-border);
   border-radius: var(--radius-full);
   width: 40px;
   height: 40px;
   display: flex;
   align-items: center;
   justify-content: center;
-  box-shadow: var(--shadow-md);
+  cursor: pointer;
   transition: all var(--transition-fast);
   z-index: 10;
+  color: var(--color-text);
 }
 
 .gallery__arrow:hover {
-  background-color: var(--color-primary);
-  color: white;
-  transform: translateY(-50%) scale(1.1);
+  background-color: white;
+  box-shadow: var(--shadow-md);
+  transform: translateY(-50%) scale(1.05);
 }
 
 .gallery__arrow--prev {
-  left: var(--spacing-sm);
+  left: var(--spacing-md);
 }
 
 .gallery__arrow--next {
-  right: var(--spacing-sm);
+  right: var(--spacing-md);
 }
 
 .gallery__thumbnails {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
   gap: var(--spacing-sm);
-  margin-bottom: var(--spacing-md);
 }
 
 .thumbnail {
   aspect-ratio: 1;
+  width: 100%;
   object-fit: cover;
-  border-radius: var(--radius-sm);
+  border-radius: var(--radius-md);
   cursor: pointer;
   border: 2px solid transparent;
+  background-color: var(--color-bg-light);
   transition: all var(--transition-fast);
 }
 
 .thumbnail:hover {
   border-color: var(--color-primary);
-  transform: scale(1.05);
+  transform: translateY(-2px);
 }
 
 .thumbnail.active {
   border-color: var(--color-primary);
-  box-shadow: var(--shadow-md);
+  box-shadow: 0 0 0 2px rgba(26, 95, 63, 0.1);
 }
 
 .gallery__dots {
   display: flex;
   justify-content: center;
-  gap: var(--spacing-xs);
+  gap: 8px;
+  margin-top: var(--spacing-md);
 }
 
 .dot {
   width: 8px;
   height: 8px;
-  border-radius: var(--radius-full);
+  border-radius: 50%;
   background-color: var(--color-border);
   cursor: pointer;
   transition: all var(--transition-fast);
 }
 
-.dot:hover {
-  background-color: var(--color-accent);
-}
-
 .dot.active {
   background-color: var(--color-primary);
-  width: 24px;
+  transform: scale(1.2);
 }
 
 /* Product Details */
 .product__details {
-  background-color: white;
-  padding: var(--spacing-lg);
-  border-radius: var(--radius-lg);
-  box-shadow: var(--shadow-sm);
+  display: flex;
+  flex-direction: column;
 }
 
 .product__title {
-  font-size: 2rem;
-  font-family: var(--font-heading);
-  color: var(--color-primary);
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: var(--color-primary-dark);
+  margin-bottom: var(--spacing-xs);
+  letter-spacing: -0.02em;
+}
+
+.product__rating {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-sm);
+  margin-bottom: var(--spacing-md);
+}
+
+.stars {
+  color: #00a651; /* Bright green for stars */
+  letter-spacing: 2px;
+  font-size: 1.1rem;
+}
+
+.rating-text {
+  font-size: 0.875rem;
+  color: var(--color-text-light);
+  font-weight: 500;
+}
+
+.product__description {
+  font-size: 1rem;
+  color: var(--color-text-light);
+  line-height: 1.6;
+  margin-bottom: var(--spacing-xl);
+}
+
+/* Subscription Box */
+.product__option {
+  margin-bottom: var(--spacing-xl);
+}
+
+.option__title {
+  display: none; /* Hidden visually as per design */
+}
+
+.subscription-accordion {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-md);
+}
+
+/* The Card Container */
+.subscription-accordion-item {
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  background-color: white;
+  overflow: hidden;
+  transition: all var(--transition-normal);
+  position: relative;
+}
+
+.subscription-accordion-item.active {
+  border-color: #00a651;
+  box-shadow: 0 4px 20px rgba(0, 166, 81, 0.08);
+}
+
+/* Most Popular Header - Full Width */
+.subscription-header {
+  background-color: #00a651;
+  color: white;
+  text-align: center;
+  padding: 8px 0;
+  font-size: 0.875rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  width: 100%;
+}
+
+.subscription-accordion-header {
+  width: 100%;
+  background: none;
+  border: none;
+  padding: 0;
+  cursor: pointer;
+  text-align: left;
+}
+
+.subscription-content {
+  display: flex;
+  align-items: center; /* Center vertically specifically for the collapsed view */
+  padding: var(--spacing-md) var(--spacing-lg);
+  gap: var(--spacing-md);
+}
+
+.subscription-radio {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.radio-circle {
+  width: 22px;
+  height: 22px;
+  border: 2px solid var(--color-border);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all var(--transition-fast);
+}
+
+.subscription-accordion-item.active .radio-circle {
+  border-color: #00a651;
+  background-color: white; /* Outline style based on image, or filled? Image shows green dot inside */
+}
+
+.subscription-accordion-item.active .radio-circle::after {
+  content: "";
+  width: 12px;
+  height: 12px;
+  background-color: #00a651;
+  border-radius: 50%;
+}
+
+.subscription-info {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+}
+
+.subscription-title {
+  font-size: 1.125rem;
+  font-weight: 600;
+  color: var(--color-text);
+  margin: 0;
+}
+
+.subscription-pricing {
+  display: flex;
+  align-items: flex-end; /* Align baselines */
+  gap: 8px;
+}
+
+.current-price {
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: var(--color-text);
+}
+
+.original-price {
+  font-size: 1rem;
+  color: var(--color-text-light);
+  text-decoration: line-through;
+}
+
+/* Expanded Content */
+.subscription-accordion-content {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.3s ease-in-out;
+  padding: 0 var(--spacing-lg);
+  opacity: 0;
+}
+
+.subscription-accordion-item.active .subscription-accordion-content {
+  max-height: 1200px; /* Allow enough height */
+  opacity: 1;
+  padding-bottom: var(--spacing-lg);
+  border-top: 1px solid var(--color-border);
+  margin-top: 0;
+}
+
+/* Fragrance Selection */
+.fragrance-selection {
+  margin-top: var(--spacing-lg);
+}
+
+.fragrance-selection h4 {
+  font-size: 1rem;
+  font-weight: 600;
+  margin-bottom: var(--spacing-md);
+  color: var(--color-text);
+}
+
+.fragrance-options {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: var(--spacing-md);
+}
+
+.fragrance-option {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  position: relative;
+  cursor: pointer;
+  padding: var(--spacing-sm);
+  border-radius: var(--radius-md);
+  border: 1px solid transparent; /* Invisible border to prevent layout shift */
+  transition: all var(--transition-fast);
+}
+
+.fragrance-option:hover {
+  background-color: var(--color-bg-light);
+}
+
+/* Selected Fragrance Styling */
+.fragrance-option.selected {
+  /* Box style for selected item if needed, image shows subtle highlighting */
+}
+
+.fragrance-badge {
+  position: absolute;
+  top: -10px;
+  background-color: #032e15;
+  color: white;
+  font-size: 0.625rem;
+  font-weight: 700;
+  padding: 2px 8px;
+  border-radius: 4px;
+  text-transform: uppercase;
+}
+
+.fragrance-image img {
+  width: 100%;
+  max-width: 80px;
+  height: auto;
+  margin-bottom: var(--spacing-xs);
+  filter: drop-shadow(0 4px 6px rgba(0, 0, 0, 0.1));
+}
+
+.fragrance-name {
+  font-size: 0.875rem;
+  font-weight: 500;
+}
+
+/* What's Included */
+.whats-included {
+  margin-top: var(--spacing-lg);
+}
+
+.whats-included h4 {
+  font-size: 1rem;
+  font-weight: 600;
+  margin-bottom: var(--spacing-md);
+}
+
+.included-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--spacing-md);
+}
+
+.included-item {
+  display: flex;
+  flex-direction: column;
+}
+
+.included-box {
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  padding: var(--spacing-sm);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  background-color: white;
+}
+
+.included-label {
+  font-size: 0.875rem;
+  color: var(--color-text-light);
   margin-bottom: var(--spacing-sm);
+  font-weight: 500;
+}
+
+.included-box img {
+  max-height: 100px;
+  width: auto;
+  object-fit: contain;
+}
+
+.mini-bottles {
+  display: flex;
+  gap: 4px;
+  justify-content: center;
+}
+
+.mini-bottles img {
+  width: 55px;
+  height: 94px;
+}
+
+/* Benefits List */
+.benefits-list {
+  margin-top: var(--spacing-lg);
+}
+
+.benefits-list ul {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-sm);
+}
+
+.benefits-list li {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--spacing-sm);
+  font-size: 0.875rem;
+  color: var(--color-text-light);
+}
+
+.benefits-list li img {
+  width: 16px;
+  height: 16px;
+  margin-top: 3px; /* Align with text */
+}
+
+/* Actions */
+.product__actions {
+  display: flex;
+  gap: var(--spacing-md);
+  margin-top: var(--spacing-xl);
+}
+
+.quantity {
+  display: flex;
+  align-items: center;
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-full);
+  padding: 0 var(--spacing-xs);
+}
+
+.qty-btn {
+  width: 32px;
+  height: 32px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.25rem;
+  color: var(--color-text);
+  transition: color var(--transition-fast);
+}
+
+.qty-btn:hover {
+  color: var(--color-primary);
+}
+
+#quantity {
+  width: 40px;
+  text-align: center;
+  border: none;
+  font-weight: 600;
+  font-size: 1rem;
+}
+
+.product__actions .btn--cta {
+  flex: 1;
+  padding: 1rem;
+  font-size: 1.125rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+@media (min-width: 1024px) {
+  .product__wrapper {
+    grid-template-columns: 1fr 1fr;
+    align-items: start;
+    gap: 60px;
+  }
+}
+.mini-bottles img {
+  object-fit: contain;
+}
+
+.mini-bottles {
+  display: flex;
+  justify-content: center;
+  gap: var(--spacing-xs);
+}
+
+/* Benefits List */
+.benefits-list {
+  margin-bottom: var(--spacing-md);
+}
+
+.benefits-list ul {
+  list-style: none;
+  padding: 0;
+}
+
+.benefits-list li {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-sm);
+  margin-bottom: var(--spacing-xs);
+  font-size: 0.875rem;
+  color: var(--color-text-light);
+}
+
+.benefits-list img {
+  width: 16px;
+  height: 16px;
+  object-fit: contain;
 }
 
 .product__rating {
@@ -793,30 +1192,43 @@ ul {
 .accordion-content {
   max-height: 0;
   overflow: hidden;
-  transition: max-height var(--transition-normal) ease-out,
-    padding var(--transition-normal);
-  padding: 0 var(--spacing-md);
+  transition: max-height 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  padding: 0;
 }
 
 .accordion-item.active .accordion-content {
   max-height: 200px;
-  padding: 0 var(--spacing-md) var(--spacing-md);
+  padding-bottom: var(--spacing-lg);
 }
 
 .accordion-content p {
   color: var(--color-text-light);
   line-height: 1.6;
-  margin: 0;
+  max-width: 90%;
+}
+
+.collection__image {
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  box-shadow: var(--shadow-lg);
 }
 
 .collection__image img {
-  border-radius: var(--radius-lg);
-  box-shadow: var(--shadow-lg);
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform var(--transition-slow);
+}
+
+.collection__image:hover img {
+  transform: scale(1.05);
 }
 
 @media (min-width: 768px) {
   .collection__wrapper {
     grid-template-columns: 1fr 1fr;
+    align-items: center;
+    gap: var(--spacing-2xl);
   }
 }
 
@@ -874,8 +1286,9 @@ ul {
 
 /* Comparison Table */
 .comparison {
+  /* Keeping comparison table but ensuring it doesn't break layout */
   padding: var(--spacing-2xl) 0;
-  background-color: var(--color-bg-light);
+  overflow-x: auto;
 }
 
 .table-wrapper {
@@ -888,7 +1301,6 @@ ul {
 .comparison-table {
   width: 100%;
   border-collapse: collapse;
-  background-color: white;
   min-width: 600px;
 }
 .comparison-table th span {
@@ -899,7 +1311,7 @@ ul {
 
 .comparison-table th,
 .comparison-table td {
-  padding: var(--spacing-md);
+  padding: 16px;
   text-align: center;
   border-bottom: 1px solid var(--color-border);
 }
@@ -913,7 +1325,7 @@ ul {
 .comparison-table th:first-child,
 .comparison-table td:first-child {
   text-align: left;
-  font-weight: 500;
+  font-weight: 600;
   position: sticky;
   left: 0;
   background-color: white;
@@ -952,8 +1364,8 @@ ul {
 /* ========================================
    Footer
    ======================================== */
+/* Newsletter & Footer simplified for premium look */
 .footer {
-  background-color: var(--color-primary-dark);
   color: white;
   padding: var(--spacing-2xl) 0 var(--spacing-lg);
 }
